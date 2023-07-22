@@ -1,12 +1,17 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -20,7 +25,8 @@ public class Todo {
     @GeneratedValue(strategy = IDENTITY)
     private int id;
 
-    private String content;
+    private Boolean isCompleted;
 
-    private Boolean status;
+    @Transient
+    private List<Task> tasks;
 }
