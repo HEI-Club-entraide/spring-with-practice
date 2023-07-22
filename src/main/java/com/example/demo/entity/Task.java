@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -24,5 +25,6 @@ public class Task {
     private String content;
 
     @ManyToOne
+    @JsonIgnore
     private Todo todo;
 }
